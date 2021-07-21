@@ -16,11 +16,13 @@ client = commands.Bot(command_prefix="$", intents=intents)
 
 
 async def invoking_func():
-    await asyncio.create_task(jishaku_.jishaku_func(client))
-
-await invoking_func()
-# end invoking external functions
+    asyncio.create_task(jishaku_.jishaku_func(client))
 
 
-await client.run(os.getenv("TOKEN"))
+@client.event
+async def on_ready():
+    await invoking_func()
+# end invoking functions
+
+client.run(os.getenv("TOKEN"))
 # end main file
