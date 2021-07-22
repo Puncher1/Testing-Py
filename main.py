@@ -24,5 +24,12 @@ async def on_ready():
     await invoking_func()
 # end invoking functions
 
+
+@client.command(aliases=["s"])
+@commands.is_owner()
+async def shutdown(ctx):
+    await client.logout()
+# end shutdown
+
 client.run(os.getenv("TOKEN"))
 # end main file
