@@ -31,5 +31,5 @@ async def shutdown(ctx):
     await client.logout()
 # end shutdown
 
-client.run(os.getenv("TOKEN"))
+client.run(os.getenv("TEST_TOKEN"))
 # end main file
