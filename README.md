@@ -6,7 +6,7 @@ This repo is just for test causes and is nothing special.<br/><br/>
 
 ## Table of Contents
 ### [Python](https://github.com/Puncher1/Testing/tree/main/Python)
-* [subclasses](https://github.com/Puncher1/Testing/blob/main/Python/subclasses.py)
+* [subclasses](https://github.com/Puncher1/Testing/blob/main/Python/subclasses.py) <br/><br/>
 
 ### [Discord.py](https://github.com/Puncher1/Testing/tree/main/Discord.py)
 #### [Temporary Tests](https://github.com/Puncher1/Testing/blob/main/Discord.py/temp_test.py) --> Not related to the main file
