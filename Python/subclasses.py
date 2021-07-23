@@ -1,5 +1,5 @@
 
-# Simple class inheritance
+# Inherit class
 class Parent:
 
     weight = 70
@@ -93,4 +93,39 @@ print("*")
 mgr_2.remove_emp(dev_1)
 mgr_2.print_emps()
 
+print("-------------------------")
+# ---------------------------------------------------------------------------
+
+
+# Difference between isinstance() and issubclass()
+
+# isinstance(): tells if something (an object) is an instance of a class.
+"""
+class MyClass:                      # MyClass is a class
+    data = 1
+
+mc = MyClass()                      # mc is an instance of class MyClass
+
+"""
+
+print(isinstance(mgr_1, Manager))                           # True, because it's an instance of class Manager
+print(isinstance(mgr_1, Employee))                          # True, because Manager inherit from Employee
+print(isinstance(mgr_1, Developer))                         # False, because Manager does not inherit from Developer but from Employee
+print("*")
+
+
+# issubclass(): tells if a class is a subclass of another class
+"""
+class MyClass:                      # MyClass is a class
+    data = 1
+    
+class MyClass2(MyClass):            # MyClass is a subclass of MyClass
+    pass
+
+mc = MyClass2()
+"""
+
+print(issubclass(Developer, Employee))                      # True, because Developer is a subclass of Employee
+print(issubclass(Manager, Employee))                        # True, because Manager is a subclass of Employee
+print(issubclass(Manager, Developer))                       # False, because Manager is not a subclass of Developer but of Employee
 print("-------------------------")
