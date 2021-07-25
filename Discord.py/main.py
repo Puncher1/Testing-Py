@@ -61,5 +61,10 @@ async def about(ctx: commands.Context):
     await ctx.send(embed=embed)
 
 
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(f"{error}", reference=ctx.message)
+
 client.run(os.getenv("TEST_TOKEN"))
 # end main file
