@@ -18,7 +18,6 @@ client = commands.Bot(command_prefix="$", intents=intents)
 
 BOT_TOKEN = os.getenv("TEST_TOKEN")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-
 PUNCHER_ID = 305354423801217025
 # end global constants
 
