@@ -42,6 +42,7 @@ async def v2_beta(client):
         else:
             print('Cancelled...')
 
+
     class Counter(discord.ui.View):
 
         # Define the actual button
@@ -115,10 +116,6 @@ async def v2_beta(client):
     async def button(ctx):
         await ctx.send("Click!", view=Button())
 
-    @client.command(aliases=["s"])
-    async def shutdown(ctx):
-        await ctx.message.channel.send(f"`Shutdowned {ctx.author.name}'s session`")
-        await client.close()
     # end shutdown command
 
 
