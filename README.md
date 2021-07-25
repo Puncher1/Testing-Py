@@ -12,3 +12,4 @@ This repo is just for test causes and is nothing special.<br/><br/>
 * #### [Temporary Tests](https://github.com/Puncher1/Testing/blob/main/Discord.py/temp_test.py) --> Not related to the main file
 * #### [Main File](https://github.com/Puncher1/Testing/blob/main/Discord.py/main.py)
   * [Jishaku](https://github.com/Puncher1/Testing/blob/main/Discord.py/jishaku_.py)
+  * [GitHub API](https://github.com/Puncher1/Testing/blob/main/Discord.py/github_api.py)
