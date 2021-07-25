@@ -4,6 +4,7 @@ import os
 import sys
 from dotenv import load_dotenv
 import asyncio
+import jishaku
 
 import jishaku_
 import help_cmd
@@ -48,7 +49,8 @@ async def about(ctx: commands.Context):
     embed = discord.Embed()
     embed.title = f"About {client.user.name}"
     embed.description = f"{client.user.name} is a bot for development test purposes for {owner}." \
-                        f"\nPython {sys.version[0:3]}, Discord.py {discord.__version__}"
+                        f"\nPython `{sys.version[0:3]}`, Discord.py `{discord.__version__}`, " \
+                        f"Jishaku `{jishaku.__version__}`, PyGithub `1.55`"
     embed.add_field(name="Developer", value=f"```{owner}```", inline=False)
     embed.add_field(name="GitHub", value=f"{github_desc}", inline=False)
     await ctx.send(embed=embed)
