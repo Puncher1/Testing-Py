@@ -17,7 +17,7 @@ async def github_api(github_token):
     message = commit.message
     sha_short = commit.sha[:7]
 
-    string = f"[[Testing:main] Last commit](https://github.com/Puncher1/Testing)" \
+    string = f"[**[Testing:main] Last commit**](https://github.com/Puncher1/Testing)" \
              f"\n[`{sha_short}`]({html_url}) {message} - {author.name}"
 
     return string

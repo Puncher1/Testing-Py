@@ -42,9 +42,9 @@ async def shutdown(ctx):
 
 @client.command()
 async def about(ctx: commands.Context):
-    await ctx.trigger_typing()
-    github_desc = await github_api.github_api(GITHUB_TOKEN)
-    owner = client.get_user(PUNCHER_ID)
+    async with ctx.typing():
+        github_desc = await github_api.github_api(GITHUB_TOKEN)
+        owner = client.get_user(PUNCHER_ID)
 
     embed = discord.Embed()
     embed.title = f"About {client.user.name}"
