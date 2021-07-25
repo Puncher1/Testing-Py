@@ -27,6 +27,7 @@ PUNCHER_ID = 305354423801217025
 async def invoking_funcs():
     asyncio.create_task(jishaku_.jishaku_func(client))
     asyncio.create_task(v2_beta.v2_beta(client))
+    asyncio.create_task(help_cmd.help_func(client))
 
 
 @client.event
@@ -36,7 +37,9 @@ async def on_ready():
 # end invoking functions
 
 
-@client.command(aliases=["s"])
+@client.command(aliases=["s", "sh"],
+                help="If you are a owner you can shut down the bot via this command."
+                )
 @commands.is_owner()
 async def shutdown(ctx):
     await client.close()
