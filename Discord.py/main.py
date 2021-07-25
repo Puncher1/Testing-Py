@@ -49,7 +49,7 @@ async def about(ctx):
     embed = discord.Embed()
     embed.title = f"About {client.user.name}"
     embed.description = f"{client.user.name} is a bot for development test purposes for {owner.name}." \
-                        f"\nPython {sys.version[0:3]} Discord.py {discord.__version__}"
+                        f"\nPython {sys.version[0:3]}, Discord.py {discord.__version__}"
     embed.add_field(name="Developer", value=f"```{owner}```", inline=False)
     embed.add_field(name="GitHub", value=f"{github_desc}", inline=False)
     await ctx.send(embed=embed)
