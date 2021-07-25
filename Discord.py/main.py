@@ -9,6 +9,7 @@ import jishaku
 import jishaku_
 import help_cmd
 import github_api
+import v2_beta
 # end imports
 
 
@@ -25,6 +26,7 @@ PUNCHER_ID = 305354423801217025
 
 async def invoking_funcs():
     asyncio.create_task(jishaku_.jishaku_func(client))
+    asyncio.create_task(v2_beta.v2_beta(client))
 
 
 @client.event
