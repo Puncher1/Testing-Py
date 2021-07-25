@@ -41,9 +41,9 @@ async def shutdown(ctx):
 # end shutdown
 
 @client.command()
-async def about(ctx):
+async def about(ctx: commands.Context):
+    await ctx.trigger_typing()
     github_desc = await github_api.github_api(GITHUB_TOKEN)
-
     owner = client.get_user(PUNCHER_ID)
 
     embed = discord.Embed()
