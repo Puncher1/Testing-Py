@@ -116,6 +116,39 @@ async def v2_beta(client):
     async def button(ctx):
         await ctx.send("Click!", view=Button())
 
+    class ButtonHandler(discord.ui.View):
+        def __init__(
+                self,
+                style,
+                label,
+                custom_id,
+                emoji,
+                url,
+                disabled,
+                button_user,
+                roles,
+                interaction_message,
+                ephemeral,
+                coroutine
+        ):
+            super().__init__()
+
+            self.style_ = style
+            self.label_ = label
+            self.custom_id_ = custom_id
+            self.emoji_ = emoji
+            self.url_ = url
+            self.disabled_ = disabled
+            self.button_user = button_user
+            self.roles = roles
+            self.interaction_message_ = interaction_message
+            self.ephemeral_ = ephemeral
+            self.coroutine = coroutine
+
+        @discord.ui.button()
+        async def testConfirm(self, button: discord.ui.Button, interaction: discord.Interaction):
+
+
     # end shutdown command
 
 
