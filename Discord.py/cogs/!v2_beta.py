@@ -145,9 +145,6 @@ async def v2_beta(client):
             self.ephemeral_ = ephemeral
             self.coroutine = coroutine
 
-        @discord.ui.button()
-        async def testConfirm(self, button: discord.ui.Button, interaction: discord.Interaction):
-
 
     # end shutdown command
 
