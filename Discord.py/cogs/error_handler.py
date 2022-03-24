@@ -2,6 +2,7 @@ import sys
 import traceback
 import discord
 from discord.ext import commands
+import requests
 
 from cogs import embeds
 from cogs import global_ as Global
@@ -72,16 +73,36 @@ class ErrorListeners(commands.Cog):
             full_traceback_text = ''.join(lines)
 
             error_channel = self.client.get_channel(Global.error_channel)
-            await embeds.embed_gen(
-                error_channel,
-                f"An error occurred. Command: {ctx.command}",
-                f"```py\n{full_traceback_text}\n```",
-                None,
-                None,
-                None,
-                Global.error_red,
-                False
-            )
+            try:
+                await embeds.embed_gen(
+                    error_channel,
+                    f"An error occurred. Command: {ctx.command}",
+                    f"```py\n{full_traceback_text}\n```",
+                    None,
+                    None,
+                    None,
+                    Global.error_red,
+                    False
+                )
+            except:
+                response = requests.post('https://haste.unbelievaboat.com/documents', data=full_traceback_text)
+                if response.status_code == 200:
+                    raw_key = response.json()['key']
+                    here = f"[here](https://haste.unbelievaboat.com/{raw_key}.txt)"
+                else:
+                    here = "Error 404: Not Found"
+
+                await embeds.embed_gen(
+                    error_channel,
+                    f"An error occured | Command: {ctx.command.name}",
+                    "This error is too long to show."
+                    f"\nClick {here} to see the full error.",
+                    None,
+                    None,
+                    None,
+                    Global.error_red,
+                    False
+                )
 
         if isinstance(error, commands.CommandNotFound):
             return
@@ -168,6 +189,6 @@ class ErrorListeners(commands.Cog):
             await log_traceback()
 
 
-def setup(client):
-    client.add_cog(ErrorListeners(client))
+async def setup(client):
+    await client.add_cog(ErrorListeners(client))
 

@@ -1,4 +1,5 @@
 import discord
+from discord import app_commands
 from discord.ext import commands
 import os
 import sys
@@ -8,6 +9,7 @@ import asyncio
 import jishaku
 
 from cogs import DEV_github_api
+
 
 # end imports
 
@@ -22,11 +24,18 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 PUNCHER_ID = 305354423801217025
 # end global constants
 
+# TESTING
+@client.command()
+async def test(ctx, voiceChannel: discord.VoiceChannel):
+
+    print(voiceChannel.members)
+
 
 # Event: OnReady
 @client.event
 async def on_ready():
     print(f"[MAIN] Ready!")
+    await get_extensions()
 
 
 # Event: OnConnect
@@ -35,7 +44,7 @@ async def on_connect():
     print(f"[MAIN] Connected to Discord.")
 
 
-def get_extensions():
+async def get_extensions():
     extensions = []
     ignored_extensions = ["!", "DEV", "embeds", "global_"]
 
@@ -45,11 +54,11 @@ def get_extensions():
         extensions.append(str(file).replace("\\", ".").replace(".py", ""))
 
     for ext in extensions:
-        client.load_extension(ext)
+        await client.load_extension(ext)
 
+    await client.tree.sync()
 
 # LOAD EXTENSIONS
-get_extensions()
 
 @client.command()
 async def about(ctx: commands.Context):

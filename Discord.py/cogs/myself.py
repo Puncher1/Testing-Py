@@ -214,5 +214,5 @@ class Myself(commands.Cog):
             await path_cog_reload()
 
 
-def setup(bot: commands.Bot):
-    bot.add_cog(Myself(bot))
+async def setup(bot: commands.Bot):
+    await bot.add_cog(Myself(bot))
