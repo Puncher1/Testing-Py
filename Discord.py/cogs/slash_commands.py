@@ -8,6 +8,7 @@ class SlashCommands(commands.Cog):
         self.client = client
 
     @app_commands.command(name="hello", description="Hello World!")
+    @app_commands.guilds(discord.Object(673600173615611913))
     async def hello(self, interaction: discord.Interaction):
         await interaction.response.send_message("HELLO WORLD!")
 

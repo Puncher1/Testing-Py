@@ -56,7 +56,7 @@ async def get_extensions():
     for ext in extensions:
         await client.load_extension(ext)
 
-    await client.tree.sync()
+    await client.tree.sync(guild=discord.Object(673600173615611913))
 
 # LOAD EXTENSIONS
 
